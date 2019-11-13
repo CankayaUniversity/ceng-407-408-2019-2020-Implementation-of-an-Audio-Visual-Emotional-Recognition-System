@@ -1,0 +1,9 @@
+# Folders
+data/
+src/__pycache__
+.vscode
+
+# Images and sounds
+*.jpeg
+*.png
+*.waw
