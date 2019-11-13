@@ -16,3 +16,5 @@ Command Line:
 - Enter the project folder
 - pipenv install
 - pipenv run python src/main.py
+
+for Windows
