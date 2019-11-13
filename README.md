@@ -17,4 +17,4 @@ Command Line:
 - pipenv install
 - pipenv run python src/main.py
 
-for Windows
+for Windows/Linux/MacOS
