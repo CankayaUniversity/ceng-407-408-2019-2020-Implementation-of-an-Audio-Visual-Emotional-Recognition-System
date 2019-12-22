@@ -14,9 +14,11 @@ class VideoParser:
             if(ret):
                 faces = self.face_cascade.detectMultiScale(cv.cvtColor(frame, cv.COLOR_BGR2GRAY), 1.3, 5)
                 for (x, y, w, h) in faces:
-                    img = cv.resize(frame[y : y+h, x : x+w], self.dimension, interpolation = cv.INTER_AREA)
+                    frame = frame[y : y+h, x : x+w]
+                    if(frame.size != 0):
+                        frame = cv.resize(frame, self.dimension, interpolation = cv.INTER_AREA)
+                        frame_list.append(frame)
             else:
                 capture.release()
                 break
-            frame_list.append(img)
         return np.array(frame_list)
