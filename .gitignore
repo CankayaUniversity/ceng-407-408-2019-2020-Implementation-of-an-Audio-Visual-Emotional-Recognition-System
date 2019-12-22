@@ -1,1 +1,6 @@
 .idea
+data/model
+data/videos
+venv
+src/__pycache__
+.vscode
