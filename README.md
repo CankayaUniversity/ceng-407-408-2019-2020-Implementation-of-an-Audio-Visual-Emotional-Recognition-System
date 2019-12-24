@@ -7,5 +7,6 @@ $ git clone <project web URL> <project name>
 $ cd <project name>
 $ pip install virtualenv
 $ virtualenv venv
-$ pip -r requirements.txt
+$ source venv/bin/activate
+$ pip install -r requirements.txt --user
 ```
