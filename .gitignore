@@ -4,3 +4,5 @@ data/videos
 venv
 src/__pycache__
 .vscode
+src/dataset_list
+data/frames
