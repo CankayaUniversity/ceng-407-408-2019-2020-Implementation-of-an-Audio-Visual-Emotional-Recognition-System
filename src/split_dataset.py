@@ -5,7 +5,6 @@ from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
-
 emotions = {
     1: "neutral",
     2: "calm",
@@ -17,6 +16,7 @@ emotions = {
     8: "surprised"
 }
 
+
 def readFilenames():
     filenames = []
     y_labels = []
@@ -26,8 +26,10 @@ def readFilenames():
         y_labels.append(emotions.get(int(filename[7:8])))
     return filenames, y_labels
 
+
 def writeFile(contents, filename):
     np.save(filename, contents)
+
 
 def main():
     filenames, y_labels = readFilenames()
@@ -35,14 +37,14 @@ def main():
 
     lb = preprocessing.LabelBinarizer()
     y_labels = lb.fit_transform(y_labels)
-    
-    X_train, X_test, y_train, y_test = train_test_split(
-        filenames, y_labels, test_size = 0.2, random_state = 1)
-    
-    writeFile(np.array(X_train), "X_train")
-    writeFile(np.array(X_test), "X_test")
-    
-    writeFile(np.array(y_train), "Y_train")
-    writeFile(np.array(y_test), "Y_test")
+
+    X_train, X_test, y_train, y_test = train_test_split(filenames, y_labels, test_size=0.2, random_state=1)
+
+    writeFile(np.array(X_train), "dataPaths/X_train")
+    writeFile(np.array(X_test), "dataPaths/X_test")
+
+    writeFile(np.array(y_train), "dataPaths/Y_train")
+    writeFile(np.array(y_test), "dataPaths/Y_test")
+
 
 main()
