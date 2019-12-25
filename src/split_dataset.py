@@ -35,7 +35,7 @@ def main():
     filenames, y_labels = readFilenames()
     filenames, y_labels = shuffle(filenames, y_labels)
 
-    lb = preprocessing.LabelBinarizer()
+    lb = preprocessing.LabelEncoder()
     y_labels = lb.fit_transform(y_labels)
 
     X_train, X_test, y_train, y_test = train_test_split(filenames, y_labels, test_size=0.2, random_state=1)
