@@ -13,5 +13,5 @@ class Generator(Sequence):
     def __getitem__(self, idx):
         batch_x = self.image_filenames[idx * self.batch_size:(idx + 1) * self.batch_size]
         batch_y = self.labels[idx * self.batch_size:(idx + 1) * self.batch_size]
-
-        return np.array(batch_x), np.array(batch_y)
+        
+        return batch_x, batch_y

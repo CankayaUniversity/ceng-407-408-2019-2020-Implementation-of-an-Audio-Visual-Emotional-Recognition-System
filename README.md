@@ -5,8 +5,8 @@
 ```console
 $ git clone <project web URL> <project name>
 $ cd <project name>
-$ pip install virtualenv
+$ pip3 install virtualenv
 $ virtualenv venv
 $ source venv/bin/activate
-$ pip install -r requirements.txt --user
+$ pip3 install -r requirements.txt
 ```
