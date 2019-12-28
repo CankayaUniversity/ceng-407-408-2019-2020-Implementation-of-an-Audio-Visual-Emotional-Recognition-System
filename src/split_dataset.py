@@ -16,7 +16,6 @@ emotions = {
     8: "surprised"
 }
 
-
 def readFilenames():
     filenames = []
     y_labels = []
@@ -26,10 +25,8 @@ def readFilenames():
         y_labels.append(emotions.get(int(filename[7:8])))
     return filenames, y_labels
 
-
 def writeFile(contents, filename):
     np.save(filename, contents)
-
 
 def main():
     filenames, y_labels = readFilenames()
