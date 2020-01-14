@@ -7,7 +7,7 @@ from progress.bar import ChargingBar
 from split_frame import Frame
 from video_to_frame import VideoParser
 
-video_path = "../data/videos"
+video_path = "../data/ravdess_videos"
 
 
 def preprocessing():
@@ -24,5 +24,7 @@ def preprocessing():
             bar.next()
         bar.finish()
 
+def main():
+    preprocessing()
 
-preprocessing()
+main()

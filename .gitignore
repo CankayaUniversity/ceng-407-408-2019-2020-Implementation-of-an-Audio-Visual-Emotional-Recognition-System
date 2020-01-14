@@ -1,8 +1,9 @@
 .idea
-data/model
-data/videos
 venv
 src/__pycache__
 .vscode
-src/dataset_list
+
+data/model
+data/videos
 data/frames
+data/ravdess_videos

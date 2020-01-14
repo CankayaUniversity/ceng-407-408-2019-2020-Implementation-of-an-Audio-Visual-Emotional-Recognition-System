@@ -8,7 +8,7 @@ class C3D:
         self.dimension = (frames, width, height, dimension)
         self.output = class_len
     
-    def getModel(self):
+    def getModel(self, weigths):
         model = Sequential()
         # 1st layer group and Input Layer
         model.add(Conv3D(64, (3,3,3), activation=relu, padding='same', strides=(1, 1, 1), name='conv1', input_shape=self.dimension))
@@ -42,6 +42,7 @@ class C3D:
         # Output Layer
         model.add(Dense(self.output, activation=softmax, name='fc8'))
 
-        model.load_weights('../data/model/sports1M_weights.h5', by_name=True)
+        if (weigths == True):
+            model.load_weights('../data/model/sports1M_weights.h5', by_name=True)
 
         return model
