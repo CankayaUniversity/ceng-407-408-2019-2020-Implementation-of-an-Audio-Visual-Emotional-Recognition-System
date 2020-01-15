@@ -5,5 +5,8 @@ src/__pycache__
 
 data/model
 data/videos
-data/frames
+data/checkpoints
+data/savee_videos
+data/savee_frames
 data/ravdess_videos
+data/ravdess_frames
