@@ -19,7 +19,7 @@ emotions = {
 def readFilenames():
     filenames = []
     y_labels = []
-    path = "../data/frames"
+    path = "../data/ravdess_frames"
     for filename in os.listdir(path):
         filenames.append(path + "/" + filename)
         y_labels.append(emotions.get(int(filename[7:8])))
@@ -37,11 +37,11 @@ def main():
 
     X_train, X_test, y_train, y_test = train_test_split(filenames, y_labels, test_size=0.2, random_state=1)
 
-    writeFile(np.array(X_train), "dataPaths/X_train")
-    writeFile(np.array(X_test), "dataPaths/X_test")
+    writeFile(np.array(X_train), "dataPaths/ravdess/X_train")
+    writeFile(np.array(X_test), "dataPaths/ravdess/X_test")
 
-    writeFile(np.array(y_train), "dataPaths/Y_train")
-    writeFile(np.array(y_test), "dataPaths/Y_test")
+    writeFile(np.array(y_train), "dataPaths/ravdess/Y_train")
+    writeFile(np.array(y_test), "dataPaths/ravdess/Y_test")
 
 
 main()
