@@ -1,0 +1,7 @@
+tensorflow_gpu==2.0.0
+numpy==1.18.1
+opencv_python==4.1.2.30
+Django==3.0.4
+librosa==0.7.2
+soundfile==0.10.3.post1
+tensorflow==2.1.0

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div align="center">
+    <h1>List Contents</h1>
+    <hr>
+    {% for content in contents %}
+    <div>
+        <h1><a href="{% url 'content_detail' pk=content.pk %}">{{ content.content_name }}</a></h1>
+        <p><b>Content Type:</b> {{ content.content_type }}</p>
+        <p><b>Content Language:</b> {{ content.content_language }}</p>
+        <hr>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div align="center">
+    <p>Please login the account.</p>
+</div>
+{% endif %}
+{% endblock content%}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div align="center">
+    <a href="/emotion_analyze">
+        <button type="button" class="btn btn-outline-secondary">Emotion Analyze</button>
+    </a>
+    <a href="/language_analyzes">
+        <button type="button" class="btn btn-outline-primary">Language Analyze</button>
+    </a>
+    <a href="/gender_analyzes">
+        <button type="button" class="btn btn-outline-secondary">Gender Analyze</button>
+    </a>
+</div>
+<br/>
+{% block graph %}
+{% endblock graph %}
+{% else %}
+<div align="center">
+    <p>Please login the account.</p>
+</div>
+{% endif %}
+
+{% endblock content %}

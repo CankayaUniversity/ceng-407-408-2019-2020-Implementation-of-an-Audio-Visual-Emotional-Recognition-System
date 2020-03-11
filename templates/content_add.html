@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div align="center">
+    <h1>Add Content</h1>
+    <form method="post" enctype="multipart/form-data" id="uploadContent">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Upload"/>
+    </form>
+</div>
+{% else %}
+<div align="center">
+    <p>Please login the account.</p>
+</div>
+{% endif %}
+
+{% endblock content%}

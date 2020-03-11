@@ -1,0 +1,24 @@
+{% extends 'content_detail.html' %}
+{% load static %}
+
+{% block result %}
+{% if user.is_authenticated %}
+<br/>
+<hr>
+<div align="center">
+    <h3>Results:</h3>
+    {% for emotion in result %}
+    <div>
+        {{ emotion }}
+        <br/>
+    </div>
+    {% endfor %}
+    <br/>
+    <hr>
+</div>
+{% else %}
+<div align="center">
+    <p>Please login the account.</p>
+</div>
+{% endif %}
+{% endblock result %}
