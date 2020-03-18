@@ -19,7 +19,7 @@ emotions = {
 def readFilenames():
     filenames = []
     y_labels = []
-    path = "../data/ravdess_frames"
+    path = "../data/ravdess_visual_frames"
     for filename in os.listdir(path):
         filenames.append(path + "/" + filename)
         y_labels.append(emotions.get(int(filename[7:8])))
