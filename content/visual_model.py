@@ -23,7 +23,7 @@ class C3D:
         self.dimension = (frames, width, height, dimension)
         self.output = class_len
 
-    def getModel(self, weights):
+    def getModel(self):
         model = Sequential()
         # 1st layer group and Input Layer
         model.add(Conv3D(64, (3, 3, 3), activation=relu, padding='same', strides=(1, 1, 1), name='conv1',
@@ -57,8 +57,6 @@ class C3D:
 
         # Output Layer
         model.add(Dense(self.output, activation=softmax, name='fc8'))
-        if weights == True:
-            model.load_weights('/content/drive/My Drive/sports1M_weights.h5', by_name=True)
 
         return model
 
@@ -115,7 +113,7 @@ def preprocessing(video_path):
 
 
 def get_model():
-    model = C3D(16, 227, 227, 3, 8).getModel(False)
+    model = C3D(16, 227, 227, 3, 8).getModel()
     model.load_weights("./weights/C3D_weights.hdf5")
     return model
 

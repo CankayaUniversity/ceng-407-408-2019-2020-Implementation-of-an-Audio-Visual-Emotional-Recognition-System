@@ -2,9 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic.edit import CreateView
 from .models import Contents
 from .forms import ContentsForm
-from django.http import HttpResponse
 from .visual_model import preprocessing, get_model, display
 from .audio_model import process_audio
+from .fusion_model import fusion
 
 
 class ContentAdd(CreateView):
@@ -12,11 +12,6 @@ class ContentAdd(CreateView):
     form_class = ContentsForm
     template_name = "content_add.html"
     success_url = "/"
-
-    """
-        def form_valid(self, form):
-        return HttpResponse("Sweeeeeet.")  # göster ve yönlendirme yap!
-    """
 
 
 def content_list(request):
@@ -100,6 +95,15 @@ def test_audio(request, pk):
     post = get_object_or_404(Contents, pk=pk)
     result = process_audio('./' + post.content_upload.url)
     return render(request, 'test_audio.html', {
+        'result': result,
+        'content': post
+    })
+
+
+def test_fusion(request, pk):
+    post = get_object_or_404(Contents, pk=pk)
+    result = fusion(post)
+    return render(request, 'test_fusion.html', {
         'result': result,
         'content': post
     })
