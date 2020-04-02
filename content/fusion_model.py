@@ -99,9 +99,13 @@ def feature_audio_model():
     return extractor_model
 
 
-def preprocess_audio(path):
+def extract_audio(path):
     command = "ffmpeg -y -i {} -ab 160k -ac 2 -ar 44100 -vn ./media/contents/audio_extract.wav".format("." + path)
     subprocess.call(command, shell=True)
+
+
+def preprocess_audio(path):
+    extract_audio(path)
     X, sample_rate = librosa.load("./media/contents/audio_extract.wav", res_type='kaiser_fast')
     mfcc = np.mean(librosa.feature.mfcc(y=X, sr=sample_rate, n_mfcc=40).T, axis=0)
     return np.expand_dims(mfcc.reshape(1, 40), axis=2)

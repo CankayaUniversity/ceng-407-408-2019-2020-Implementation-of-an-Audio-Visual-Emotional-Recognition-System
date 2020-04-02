@@ -1,4 +1,3 @@
-from django.contrib import messages
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.edit import CreateView
 from .models import Contents
@@ -12,11 +11,11 @@ class ContentAdd(CreateView):
     model = Contents
     form_class = ContentsForm
     template_name = "content_add.html"
-    success_url = "/"
+    success_url = "/list_contents/"
 
 
 def content_list(request):
-    contents = Contents.objects.all()
+    contents = Contents.objects.order_by('id').reverse()
     return render(request, 'contents_list.html', {'contents': contents})
 
 
@@ -94,7 +93,13 @@ def test_visual(request, pk):
 
 def test_audio(request, pk):
     post = get_object_or_404(Contents, pk=pk)
+    # if post.content_type == "Audio":
     result = process_audio('./' + post.content_upload.url)
+    """
+    else:
+        extract_audio(post.content_upload.url)
+        result = process_audio("./media/contents/audio_extract.wav")
+    """
     return render(request, 'test_audio.html', {
         'result': result,
         'content': post

@@ -3,18 +3,52 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<div align="center">
-    <h1>List Contents</h1>
-    <hr>
-    {% for content in contents %}
-    <div>
-        <h1><a href="{% url 'content_detail' pk=content.pk %}">{{ content.content_name }}</a></h1>
-        <p><b>Content Type:</b> {{ content.content_type }}</p>
-        <p><b>Content Language:</b> {{ content.content_language }}</p>
-        <hr>
+<main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">List of Contents</h1>
+            <p class="lead text-muted">You can see all video/audio in our database.</p>
+        </div>
+    </section>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for content in contents %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <td>
+                                {% if content.content_type == "Video" %}
+                                <div style='text-align: left;'><i class="fas fa-video fa-3x"></i></div>
+                                {% else %}
+                                <div style='text-align: left;'><i class="fas fa-volume-up fa-3x"></i></div>
+                                {% endif %}
+                                <div style='text-align: right; font-size:20;'>{{ content.content_name }}</div>
+                            </td>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                            <p><b>Content Type:</b> {{ content.content_type }}</p>
+                            <p><b>Content Language:</b> {{ content.content_language }}</p>
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'content_detail' pk=content.pk %}" style="text-decoration:none;
+                                        color:white;">
+                                        <button type="button" class="btn btn-info">
+                                            View
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    {% endfor %}
-</div>
+</main>
 {% else %}
 <div align="center">
     <p>Please login the account.</p>

@@ -5,6 +5,10 @@
 {% if user.is_authenticated %}
 <br/>
 <hr>
+<div class="alert alert-success" role="alert">
+    You can see the emotional state of your content below.
+</div>
+<hr>
 <div align="center">
     <h3>Results:</h3>
     {% for emotion in result %}

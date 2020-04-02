@@ -19,15 +19,18 @@
         <br/>
         <br/>
         <hr>
+        {% if content.content_type == "Video" %}
         <a href="{% url 'test_visual' pk=content.pk %}">
             <button type="button" class="btn btn-secondary">Find Emotion <br/> (using visual)</button>
         </a>
         <a href="{% url 'test_fusion' pk=content.pk %}">
             <button type="button" class="btn btn-info">Find Emotion <br/> (with fusion)</button>
         </a>
+        {% else %}
         <a href="{% url 'test_audio' pk=content.pk %}">
             <button type="button" class="btn btn-dark">Find Emotion <br/> (using audio)</button>
         </a>
+        {% endif %}
         {% block result %}
         {% endblock result %}
     </div>

@@ -3,7 +3,12 @@
 {% block content %}
 {% if user.is_authenticated %}
 <div align="center">
-    <h1>Add Content</h1>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Add Content</h1>
+            <p class="lead text-muted">You can upload your all contents and also contents' informations by this page to the system.</p>
+        </div>
+    </section>
     <form method="post" enctype="multipart/form-data" id="uploadContent">
         {% csrf_token %}
         <table>
