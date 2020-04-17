@@ -1,6 +1,6 @@
 # Implementation of an Audio-Visual Emotional Recognition System
 
-### How does it work?
+### Compilation / Installation Guide
 
 ```console
 $ git clone <project web URL> <project name>
