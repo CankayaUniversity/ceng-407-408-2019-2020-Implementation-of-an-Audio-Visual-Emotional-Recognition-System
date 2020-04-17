@@ -1,0 +1,52 @@
+{% extends 'analyze_content.html' %}
+{% load static %}
+
+{% block graph %}
+{% if user.is_authenticated %}
+<div align="center">
+    <div id="container" style="width: 75%;">
+        <canvas id="pie-chart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script>
+
+    var config = {
+      type: 'bar',
+      data: {
+        datasets: [{
+          data: {{ data|safe }},
+          backgroundColor: [
+            '#91A6FF', '#FF88DC', '#FF5154', '#FFFFFF', '#FF88DC'
+          ],
+          label: "Languages"
+        }],
+        labels: {{ labels|safe }}
+      },
+      options: {
+        responsive: true,
+        scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+       }
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+
+
+
+    </script>
+</div>
+{% else %}
+<div align="center">
+    <p>Please login the account.</p>
+</div>
+{% endif %}
+{% endblock graph %}

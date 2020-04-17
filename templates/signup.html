@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title" align="center">Sign up</h3>
+                    {% if form.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        Your registration could not be completed. <br/>
+                        Make sure it meets all the requirements and you have entered it correctly.
+                    </div>
+                    {% endif %}
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {% include 'includes/form.html' %}
+                        <button type="submit" class="btn btn-primary btn-block">Create an account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
