@@ -12,7 +12,23 @@
 <div align="center">
     <h3>Results:</h3>
     <div>
-        {{ result }}
+        {% if result == "angry" %}
+        <i class='fas fa-angry' style='font-size:35px;color:red'> Angry</i>
+        {% elif result == "calm" %}
+        <i class='far fa-meh' style='font-size:35px;color:green'> Calm</i>
+        {% elif result == "neutral" %}
+        <i class='fas fa-meh-blank' style='font-size:35px;color:green'> Neutral</i>
+        {% elif result == "sad" %}
+        <i class='far fa-sad-cry' style='font-size:35px;color:green'> Sad</i>
+        {% elif result == "fearful" %}
+        <i class='fas fa-flushed' style='font-size:35px;color:green'> Fearful</i>
+        {% elif result == "disgust" %}
+        <i class='fas fa-grimace' style='font-size:35px;color:green'> Disgust</i>
+        {% elif result == "surprised" %}
+        <i class='far fa-surprise' style='font-size:35px;color:green'> Surprised</i>
+        {% elif result == "happy" %}
+        <i class='fas fa-laugh' style='font-size:35px;color:green'> Happy</i>
+        {% endif %}
         <br/>
     </div>
     <br/>

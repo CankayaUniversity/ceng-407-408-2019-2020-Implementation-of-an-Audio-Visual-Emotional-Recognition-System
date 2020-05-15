@@ -4,7 +4,13 @@
 {% if user.is_authenticated %}
 <div align="center" class="post">
     <div>
-        <h1>{{ content.content_name }}</h1>
+        <div style='text-align: center;'>
+            {% if content.content_type == "Video" %}
+            <i class="fas fa-video fa-3x"> {{ content.content_name }}</i>
+            {% else %}
+            <i class="fas fa-volume-up fa-3x"> {{ content.content_name }}</i>
+            {% endif %}
+        </div>
         <hr>
         <p><b>Content Uploader:</b> {{ content.uploader }}</p>
         <p><b>Content Type:</b> {{ content.content_type }}</p>
