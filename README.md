@@ -13,6 +13,10 @@ $ python manage.py makemigrations
 $ python manage.py migrate
 $ python manage.py runserver
 ```
+You want to see some properties to this system, you can create a superuser. You can follow the below comments:
+```console
+$ python manage.py createsuperuser
+```
 
 #### Note:
 - This system work with PostgreSql database. 
