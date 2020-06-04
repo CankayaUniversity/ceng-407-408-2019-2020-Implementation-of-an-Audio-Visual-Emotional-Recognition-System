@@ -9,6 +9,7 @@ $ pip3 install virtualenv
 $ virtualenv venv
 $ source venv/bin/activate
 $ pip3 install -r requirements.txt
+$ sudo apt install ffmpeg
 $ python manage.py makemigrations
 $ python manage.py migrate
 $ python manage.py runserver
